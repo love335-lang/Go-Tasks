@@ -1,159 +1,85 @@
-
-
-</body>
-</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>GoTasks | Earn by Completing Tasks</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f2f4f7;
-            color: #333;
-        }
-        header {
-            background: linear-gradient(135deg, #0d6efd, #084298);
-            color: #fff;
-            text-align: center;
-            padding: 50px 20px;
-        }
-        header h1 {
-            font-size: 42px;
-            margin: 0;
-        }
-        header p {
-            font-size: 18px;
-            margin-top: 10px;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 14px 30px;
-            background: #ffc107;
-            color: #000;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 6px;
-        }
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 40px 20px;
-        }
-        .box {
-            background: #fff;
-            padding: 30px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-        }
-        h2 {
-            color: #0d6efd;
-            margin-top: 0;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        footer {
-            background: #222;
-            color: #ccc;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-        }
-        .ar {
-            margin-top: 10px;
-            font-size: 15px;
-            color: #555;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>GoTasks</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f4f7;
+}
+section {
+    display: none;
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+.active {
+    display: block;
+}
+button {
+    padding: 12px 20px;
+    background: #0d6efd;
+    border: none;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+}
+</style>
+
+<script>
+function show(sectionId) {
+    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+    document.getElementById(sectionId).classList.add("active");
+}
+</script>
 </head>
+
 <body>
 
-<header>
+<!-- HOME -->
+<section id="home" class="active">
     <h1>GoTasks</h1>
-    <p>Complete Tasks • Earn Rewards • Withdraw Securely</p>
-    <p class="ar">نفّذ مهام بسيطة واحصل على أرباح حقيقية</p>
-    <a href="#" class="btn">Get Started | ابدأ الآن</a>
-</header>
+    <p>Earn rewards by completing tasks</p>
+    <p>اكسب أرباحًا من خلال تنفيذ مهام بسيطة</p>
+    <button onclick="show('login')">Get Started</button>
+</section>
 
-<div class="container">
+<!-- LOGIN -->
+<section id="login">
+    <h2>Login</h2>
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button onclick="show('dashboard')">Login</button>
+    <p><a href="#" onclick="show('register')">Create Account</a></p>
+</section>
 
-    <div class="box">
-        <h2>About GoTasks</h2>
-        <p>
-            GoTasks is a task-based earning platform where users can earn rewards by completing online tasks and CPA offers.
-            The system is designed to be transparent, fair, and scalable.
-        </p>
-        <p class="ar">
-            GoTasks هي منصة ربح تعتمد على تنفيذ مهام وعروض رقمية مقابل أرباح حقيقية بنظام واضح ومنظم.
-        </p>
-    </div>
+<!-- REGISTER -->
+<section id="register">
+    <h2>Register</h2>
+    <input type="text" placeholder="Full Name">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button onclick="show('dashboard')">Register</button>
+</section>
 
-    <div class="box">
-        <h2>How It Works</h2>
-        <ul>
-            <li>Create an account and activate your membership</li>
-            <li>Complete available tasks and offers</li>
-            <li>Earn rewards for each completed task</li>
-            <li>Request withdrawal after meeting the conditions</li>
-        </ul>
-        <ul class="ar">
-            <li>إنشاء حساب وتفعيل الاشتراك</li>
-            <li>تنفيذ المهام والعروض المتاحة</li>
-            <li>الحصول على أرباح مقابل كل مهمة</li>
-            <li>طلب سحب الأرباح بعد تحقيق الشروط</li>
-        </ul>
-    </div>
-
-    <div class="box">
-        <h2>Membership Plan</h2>
-        <ul>
-            <li>Activation fee: <strong>$100</strong></li>
-            <li>Maximum earnings: <strong>$10</strong></li>
-            <li>No fixed number of tasks</li>
-            <li>Minimum withdrawal: <strong>$50</strong></li>
-            <li>Withdrawal processing: up to <strong>14 days</strong></li>
-        </ul>
-        <ul class="ar">
-            <li>رسوم الاشتراك: <strong>100 دولار</strong></li>
-            <li>الحد الأقصى للأرباح: <strong>10 دولارات</strong></li>
-            <li>عدد المهام غير محدد</li>
-            <li>الحد الأدنى للسحب: <strong>50 دولار</strong></li>
-            <li>مدة السحب: حتى <strong>14 يوم</strong></li>
-        </ul>
-    </div>
-
-    <div class="box">
-        <h2>Referral Program</h2>
-        <p>
-            Invite new users and earn referral rewards after conditions are met.
-        </p>
-        <p class="ar">
-            اربح مكافآت إضافية من خلال دعوة مستخدمين جدد بعد تحقيق شروط الإحالة.
-        </p>
-    </div>
-
-    <div class="box">
-        <h2>Transparency Notice</h2>
-        <p>
-            GoTasks does not guarantee fixed income. Earnings depend on task availability and user activity.
-            Any fraudulent activity will result in account suspension.
-        </p>
-        <p class="ar">
-            لا يوجد ربح ثابت مضمون. الأرباح تعتمد على توفر المهام ونشاط المستخدم.
-        </p>
-    </div>
-
-</div>
-
-<footer>
-    © 2026 GoTasks. All Rights Reserved.
-</footer>
+<!-- DASHBOARD -->
+<section id="dashboard">
+    <h2>Dashboard</h2>
+    <p>Balance: <strong>$0</strong></p>
+    <p>Available Tasks: 0</p>
+    <button>Complete Task</button><br><br>
+    <button onclick="show('home')">Logout</button>
+</section>
 
 </body>
 </html>
