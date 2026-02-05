@@ -1,103 +1,104 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>GoTasks | Dashboard</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f9;
-      margin: 0;
-    }
-    header {
-      background: #1e5bb8;
-      color: white;
-      padding: 15px;
-      text-align: center;
-      font-size: 20px;
-    }
-    .container {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .balance {
-      font-size: 28px;
-      color: green;
-      font-weight: bold;
-    }
-    button {
-      background: #28a745;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover {
-      background: #218838;
-    }
-    .logout {
-      background: #dc3545;
-      margin-top: 10px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>GoTasks - لوحة التحكم</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    direction: rtl;
+}
+
+header {
+    background: #1e5eff;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.balance {
+    font-size: 22px;
+    color: green;
+    font-weight: bold;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-task {
+    background: #28a745;
+    color: white;
+}
+
+.btn-logout {
+    background: #dc3545;
+    color: white;
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  لوحة التحكم – GoTasks
-</header>
+<header>GoTasks - لوحة التحكم</header>
 
 <div class="container">
 
-  <div class="card">
-    <h3>👤 مرحبًا، <span id="username">مستخدم</span></h3>
-    <p>رصيدك الحالي:</p>
-    <div class="balance">$<span id="balance">0</span></div>
-  </div>
+    <div class="card">
+        👤 مرحبًا، مستخدم<br><br>
+        رصيدك الحالي:
+        <div class="balance">$<span id="balance">0</span></div>
+    </div>
 
-  <div class="card">
-    <h3>📋 المهام المتاحة</h3>
-    <p>مهمة: مشاهدة إعلان لمدة 30 ثانية</p>
-    <p>المكافأة: <b>$1</b></p>
-    <button onclick="completeTask()">تنفيذ المهمة</button>
-  </div>
+    <div class="card" id="taskBox">
+        📌 <strong>المهام المتاحة</strong><br><br>
+        مهمة: مشاهدة إعلان لمدة 30 ثانية<br>
+        المكافأة: <strong>$1</strong><br><br>
+        <button class="btn-task" onclick="completeTask()">تنفيذ المهمة</button>
+    </div>
 
-  <div class="card">
-    <h3>🚪 تسجيل الخروج</h3>
-    <button class="logout" onclick="logout()">خروج</button>
-  </div>
+    <div class="card">
+        <button class="btn-logout" onclick="logout()">تسجيل الخروج</button>
+    </div>
 
 </div>
 
 <script>
-  let balance = localStorage.getItem("balance") || 0;
-  document.getElementById("balance").innerText = balance;
+let balance = localStorage.getItem("balance") || 0;
+document.getElementById("balance").innerText = balance;
 
-  let username = localStorage.getItem("username") || "مستخدم";
-  document.getElementById("username").innerText = username;
-
-  function completeTask() {
+function completeTask() {
     balance = parseInt(balance) + 1;
     localStorage.setItem("balance", balance);
     document.getElementById("balance").innerText = balance;
-    alert("✅ تم تنفيذ المهمة وربح 1$");
-  }
+    document.getElementById("taskBox").innerHTML = "✅ تم تنفيذ المهمة بنجاح";
+}
 
-  function logout() {
-    alert("تم تسجيل الخروج");
+function logout() {
     window.location.href = "index.html";
-  }
+}
 </script>
 
 </body>
